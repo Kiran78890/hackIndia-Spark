@@ -77,28 +77,3 @@ def extract_gemini_confidence(text: str) -> int:
         pass
     
     return 50
-
-# def mock_gemini_check(text: str) -> dict:
-#     """
-#     Mock Gemini check (for testing without API key)
-#     """
-#     from core.constants import SUSPICIOUS_KEYWORDS
-    
-#     text_lower = text.lower()
-#     found_keywords = [kw for kw in SUSPICIOUS_KEYWORDS if kw in text_lower]
-    
-#     confidence = 50
-#     if found_keywords:
-#         confidence = 35
-    
-#     reasoning = f"""REALISTIC: Maybe
-# MISINFORMATION_PATTERN: Yes
-# RED_FLAGS: Contains suspicious language, Unverified claims, Emotional triggers
-# CONFIDENCE: {confidence}
-# EXPLANATION: Text contains {len(found_keywords)} suspicious keywords and appears questionable."""
-    
-#     return {
-#         "reasoning": reasoning,
-#         "ai_confidence": confidence,
-#         "source": "Mock Gemini"
-#     }

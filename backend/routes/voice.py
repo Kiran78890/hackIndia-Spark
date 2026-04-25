@@ -2,7 +2,7 @@ from fastapi import APIRouter, File, UploadFile, HTTPException
 from services.speechtotext import transcribe_audio
 from services.verification import verify_complete
 
-router = APIRouter(prefix="/voice", tags=["voice"])
+router = APIRouter(prefix="/api/voice", tags=["voice"])
 
 @router.post("/transcribe")
 async def transcribe_only(audio: UploadFile = File(...)):

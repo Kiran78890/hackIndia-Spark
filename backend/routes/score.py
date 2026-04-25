@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from utils.scoring import calculate_score, get_verdict_details
 
-router = APIRouter(prefix="/score", tags=["scoring"])
+router = APIRouter(prefix="/api/score", tags=["scoring"])
 
 class ScoreCalculationRequest(BaseModel):
     """Request model for score calculation"""

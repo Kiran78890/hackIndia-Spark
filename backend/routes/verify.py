@@ -5,7 +5,7 @@ from models.responsemodels import (
 )
 from services.verification import verify_complete
 
-router = APIRouter(prefix="/verify", tags=["verification"])
+router = APIRouter(prefix="/api/verify", tags=["verification"])
 
 @router.post("/text", response_model=VerifyTextResponse)
 async def verify_text(request: VerifyTextRequest):
@@ -23,7 +23,7 @@ async def verify_text(request: VerifyTextRequest):
         raise HTTPException(status_code=400, detail="Text too long (max 2000 characters)")
     
     try:
-        result = await verify_complete(request.text, use_mock=request.use_mock)
+        result = await verify_complete(request.text)
         
         # Convert to response models
         fact_checks = [FactCheckModel(**fc) for fc in result.get('fact_checks', [])]

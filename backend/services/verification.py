@@ -9,16 +9,9 @@ from services.hf import check_with_huggingface
 from services.factcheck import check_with_factcheck
 from utils.scoring import calculate_score
 
-async def verify_complete(text: str, use_mock: bool = False) -> dict:
+async def verify_complete(text: str) -> dict:
     """
     Complete verification pipeline
-    
-    Args:
-        text: Input text to verify
-        use_mock: Use mock data if True
-        
-    Returns:
-        Complete verification result
     """
     
     print(f"\n{'='*60}")
@@ -34,30 +27,23 @@ async def verify_complete(text: str, use_mock: bool = False) -> dict:
         
         # Step 2: AI Analysis (Gemini)
         print(f"\n🤖 STEP 2: AI Analysis (Google Gemini)")
-        if use_mock:
-            from services.ai_checker import mock_gemini_check
-            ai_result = mock_gemini_check(translated_text)
-            print(f"   📌 MOCK MODE")
-        else:
-            ai_result = check_with_gemini(translated_text)
+        
+        # ✅ FIXED INDENTATION HERE
+        ai_result = check_with_gemini(translated_text)
         
         ai_confidence = ai_result.get('ai_confidence', 50)
         
         # Step 3: Fact Checking
         print(f"\n📋 STEP 3: Fact Check Verification")
-        if use_mock:
-            from services.factcheck import mock_factcheck
-            factcheck_result = mock_factcheck(translated_text)
-        else:
-            factcheck_result = check_with_factcheck(translated_text)
+        factcheck_result = check_with_factcheck(translated_text)
         
         factcheck_boost = factcheck_result.get('credibility_boost', 0)
         
-        # Step 4: Calculate Score (without source verification)
+        # Step 4: Calculate Score
         print(f"\n📊 STEP 4: Calculating Final Score")
         score_result = calculate_score(
             ai_confidence,
-            sources_found=0,  # Set to 0 since we're not checking sources
+            sources_found=0,
             credibility_score=0,
             factcheck_boost=factcheck_boost
         )
@@ -73,7 +59,7 @@ async def verify_complete(text: str, use_mock: bool = False) -> dict:
             "ai_reasoning": ai_result.get('reasoning', ''),
             "ai_source": ai_result.get('source', 'Unknown'),
             "fact_checks": factcheck_result.get('fact_checks', []),
-            "news_sources": [],  # Empty array since we're not checking sources
+            "news_sources": [],
             "final_score": score_result['final_score'],
             "verdict": score_result['verdict'],
             "color": score_result['color'],

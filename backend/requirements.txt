@@ -3,10 +3,10 @@ uvicorn
 python-dotenv
 requests
 google-generativeai
-google-cloud-translate
-googletrans
 pydantic
 pydantic-settings
 openai
 python-multipart
 openai-whisper
+gunicorn
+libretranslate

@@ -78,11 +78,3 @@ def check_with_factcheck(text: str) -> dict:
     except Exception as e:
         print(f"❌ Fact Check error: {str(e)}")
         return mock_factcheck(text)
-
-def mock_factcheck(text: str) -> dict:
-    """Mock fact-check (for testing without API key)"""
-    return {
-        "fact_checks": [],
-        "credibility_boost": 0,
-        "has_fact_checks": False
-    }
