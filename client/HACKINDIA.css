@@ -1,0 +1,148 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  color: #f5d76e;
+  background: black;
+}
+
+/* BACKGROUND */
+.bg-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("castle.jpg") no-repeat center/cover;
+  filter: brightness(0.5);
+  z-index: -1;
+}
+
+/* HEADER (CENTERED PERFECTLY) */
+.top-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  margin-top: 40px;
+}
+
+.top-header h1 {
+  font-size: 52px;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.top-header p {
+  color: #d4af37;
+  font-size: 14px;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+/* OWL */
+.owl {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.owl:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* CARD */
+.card {
+  width: 700px;
+  margin: 70px auto;
+  padding: 40px;
+
+  background: #020617;
+
+  border-radius: 12px;
+  border: 2px solid rgba(212,175,55,0.5);
+
+  box-shadow:
+    0 0 30px rgba(0,0,0,0.9),
+    0 0 15px rgba(212,175,55,0.2);
+}
+
+/* LABEL */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* INPUT */
+textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 25px;
+
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.6);
+  color: #f5d76e;
+
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  min-height: 120px;
+}
+
+textarea::placeholder {
+  color: rgba(245, 215, 110, 0.5);
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(212,175,55,0.7);
+}
+
+/* BUTTON */
+#submitBtn {
+  width: 100%;
+  padding: 14px;
+
+  background: linear-gradient(90deg, #1e293b, #020617);
+  border: 1px solid #d4af37;
+  color: #f5d76e;
+
+  border-radius: 6px;
+  font-size: 16px;
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ BUTTON HOVER + WAND CURSOR */
+#submitBtn:hover {
+  cursor: url("wand.png") 16 16,
+          url("https://cur.cursors-4u.net/cursors/cur-2/cur116.cur"),
+          pointer;
+
+  box-shadow: 0 0 25px rgba(245, 215, 110, 0.9);
+  transform: scale(1.02);
+}
+
+/* CLICK EFFECT */
+#submitBtn:active {
+  transform: scale(0.98);
+}
+
+/* ERROR BOX */
+.error-box {
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(255, 0, 0, 0.2);
+  border-left: 3px solid red;
+  color: #ffb4b4;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
+}
