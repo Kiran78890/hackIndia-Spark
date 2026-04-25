@@ -146,3 +146,31 @@ textarea:focus {
   font-size: 12px;
   color: #aaa;
 }
+
+#recordBtn,
+#uploadBtn {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(90deg, #1e293b, #020617);
+  border: 1px solid #d4af37;
+  color: #f5d76e;
+
+  border-radius: 6px;
+  font-size: 16px;
+
+  transition: all 0.3s ease;
+}
+
+#recordBtn:hover,
+#uploadBtn:hover {
+  box-shadow: 0 0 25px rgba(245, 215, 110, 0.9);
+  transform: scale(1.02);
+}
+
+#audioStatus {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #d4af37;
+}
